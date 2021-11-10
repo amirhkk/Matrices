@@ -31,15 +31,20 @@ class Matrix {
 
   /** Create a new matrix based on the elements provided. */
   Matrix(double[][] elements) {
-    this.elements = elements;
+
     this.width = elements[0].length;
     this.height = elements.length;
+    this.elements = new double[height][width];
+    for (int col = 0; col < this.width; col++) {
+      for (int row = 0; row < this.height; row++) {
+        this.elements[row][col] = elements[row][col];
+      }
+    }
   }
 
   /** Multiply this matrix by the provided matrix and return the result. */
   Matrix mult(Matrix other) {
     if (width != other.height) {
-      System.out.print(width);
       throw new IllegalArgumentException("Dimension mismatch");
     }
     Matrix r = new Matrix(height, other.width);

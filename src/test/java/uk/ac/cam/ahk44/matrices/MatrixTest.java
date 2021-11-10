@@ -47,11 +47,17 @@ public class MatrixTest {
                 {3, 4},
                 {4, 5},
             });
+    Matrix f =
+            new Matrix(
+                    new double[][] {
+                            {1}
+                    });
 
 
     // ACT
     Matrix c = a.add(b);
     Matrix e = a.transpose();
+    //System.out.print(f.get(0, 0));
 
     // ASSERT
     assertThat(c.get(0, 0)).isWithin(1E-7).of(8);
