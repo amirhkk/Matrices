@@ -40,9 +40,18 @@ public class MatrixTest {
               {7, 8, 9}, //
               {10, 11, 12},
             });
+    Matrix d =
+        new Matrix(
+            new double[][] {
+                {2, 3}, //
+                {3, 4},
+                {4, 5},
+            });
+
 
     // ACT
     Matrix c = a.add(b);
+    Matrix e = a.transpose();
 
     // ASSERT
     assertThat(c.get(0, 0)).isWithin(1E-7).of(8);
@@ -51,5 +60,12 @@ public class MatrixTest {
     assertThat(c.get(1, 0)).isWithin(1E-7).of(14);
     assertThat(c.get(1, 1)).isWithin(1E-7).of(16);
     assertThat(c.get(1, 2)).isWithin(1E-7).of(18);
+
+    assertThat(e.get(0, 0)).isWithin(1E-7).of(1);
+    assertThat(e.get(0, 1)).isWithin(1E-7).of(4);
+    assertThat(e.get(1, 0)).isWithin(1E-7).of(2);
+    assertThat(e.get(1, 1)).isWithin(1E-7).of(5);
+    assertThat(e.get(2, 0)).isWithin(1E-7).of(3);
+    assertThat(e.get(2, 1)).isWithin(1E-7).of(6);
   }
 }

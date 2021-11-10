@@ -38,7 +38,17 @@ class Matrix {
 
   /** Multiply this matrix by the provided matrix and return the result. */
   Matrix mult(Matrix other) {
-    throw new UnsupportedOperationException();
+    if (width != other.height) {
+      System.out.print(width);
+      throw new IllegalArgumentException("Dimension mismatch");
+    }
+    Matrix r = new Matrix(height, other.width);
+    for (int col = 0; col < other.width; col++) {
+      for (int row = 0; row < height; row++) {
+        for (int i = 0; i < width; i++) r.elements[row][col] += elements[row][i] * other.elements[i][col];
+      }
+    }
+    return r;
   }
 
   /** Add this matrix to the provided matrix and return the result. */
@@ -57,7 +67,13 @@ class Matrix {
 
   /** Transpose this matrix and return the result. */
   Matrix transpose() {
-    throw new UnsupportedOperationException();
+    Matrix r = new Matrix(width, height);
+    for (int col = 0; col < width; col++) {
+      for (int row = 0; row < height; row++) {
+        r.elements[col][row] = elements[row][col];
+      }
+    }
+    return r;
   }
 
   /**
