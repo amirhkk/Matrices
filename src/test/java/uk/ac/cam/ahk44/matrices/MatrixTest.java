@@ -47,16 +47,12 @@ public class MatrixTest {
                 {3, 4},
                 {4, 5},
             });
-    Matrix f =
-            new Matrix(
-                    new double[][] {
-                            {1}
-                    });
 
 
     // ACT
     Matrix c = a.add(b);
     Matrix e = a.transpose();
+    Matrix f = a.mult(d);
     //System.out.print(f.get(0, 0));
 
     // ASSERT
@@ -73,5 +69,10 @@ public class MatrixTest {
     assertThat(e.get(1, 1)).isWithin(1E-7).of(5);
     assertThat(e.get(2, 0)).isWithin(1E-7).of(3);
     assertThat(e.get(2, 1)).isWithin(1E-7).of(6);
+
+    assertThat(f.get(0, 0)).isWithin(1E-7).of(20);
+    assertThat(f.get(0, 1)).isWithin(1E-7).of(26);
+    assertThat(f.get(1, 0)).isWithin(1E-7).of(47);
+    assertThat(f.get(1, 1)).isWithin(1E-7).of(62);
   }
 }
