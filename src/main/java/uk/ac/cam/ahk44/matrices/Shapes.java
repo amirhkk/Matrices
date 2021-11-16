@@ -26,7 +26,13 @@ class Shapes {
    * @return a 2x2 matrix
    */
   static Matrix rotation2d(double degrees) {
-    throw new UnsupportedOperationException();
+    double[][] data = new double[2][2];
+    data[0][0] = Math.cos(degrees);
+    data[1][1] = Math.cos(degrees);
+    data[0][1] = - Math.sin(degrees);
+    data[1][0] = Math.sin(degrees);
+
+    return new Matrix(data);
   }
 
   /** Create a new identity matrix with the specified size. */
@@ -45,7 +51,25 @@ class Shapes {
    * @return a matrix of height 2 with each column representing a point on the square
    */
   static Matrix square(int size) {
-    throw new UnsupportedOperationException();
+    double[][] data = new double[2][8*size];
+    int j = 0;
+    for (int i = -size; i < size; i++, j++) {
+      data[0][j] = i;
+      data[1][j] = size;
+    }
+    for (int i = size; i > -size; i--, j++) {
+      data[0][j] = size;
+      data[1][j] = i;
+    }
+    for (int i = -size; i < size; i++, j++) {
+      data[0][j] = i;
+      data[1][j] = -size;
+    }
+    for (int i = size; i > -size; i--, j++) {
+      data[0][j] = -size;
+      data[1][j] = i;
+    }
+    return new Matrix(data);
   }
 
   // No instances
