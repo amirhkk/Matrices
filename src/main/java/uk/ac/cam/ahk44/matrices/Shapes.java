@@ -27,10 +27,10 @@ class Shapes {
    */
   static Matrix rotation2d(double degrees) {
     double[][] data = new double[2][2];
-    data[0][0] = Math.cos(degrees);
-    data[1][1] = Math.cos(degrees);
-    data[0][1] = - Math.sin(degrees);
-    data[1][0] = Math.sin(degrees);
+    data[0][0] = Math.cos(Math.toRadians(degrees));
+    data[1][1] = Math.cos(Math.toRadians(degrees));
+    data[0][1] = - Math.sin(Math.toRadians(degrees));
+    data[1][0] = Math.sin(Math.toRadians(degrees));
 
     return new Matrix(data);
   }
@@ -61,11 +61,11 @@ class Shapes {
       data[0][j] = size;
       data[1][j] = i;
     }
-    for (int i = -size; i < size; i++, j++) {
+    for (int i = size; i > -size; i--, j++) {
       data[0][j] = i;
       data[1][j] = -size;
     }
-    for (int i = size; i > -size; i--, j++) {
+    for (int i = -size; i < size; i++, j++) {
       data[0][j] = -size;
       data[1][j] = i;
     }
