@@ -72,7 +72,7 @@ public class ShapesTest {
     assertThat(m.height()).isEqualTo(2);
     assertThat(m.width()).isEqualTo(8);
 
-    assertThat(m.height()).isEqualTo(2);
-    assertThat(m.width()).isEqualTo(12);
+    assertThat(mm.height()).isEqualTo(2);
+    assertThat(mm.width()).isEqualTo(12);
   }
 }
