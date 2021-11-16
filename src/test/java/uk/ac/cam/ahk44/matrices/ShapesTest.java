@@ -47,4 +47,32 @@ public class ShapesTest {
     assertThat(m.get(1, 0)).isWithin(1e-7).of(0);
     assertThat(m.get(1, 1)).isWithin(1e-7).of(1);
   }
+
+  @Test
+  public void rotation_isCorrect() {
+    //ACT
+    Matrix m = Shapes.rotation2d(90);
+
+    // ASSERT
+    assertThat(m.height()).isEqualTo(2);
+    assertThat(m.width()).isEqualTo(2);
+    assertThat(m.get(0, 0)).isWithin(1e-7).of(0);
+    assertThat(m.get(0, 1)).isWithin(1e-7).of(-1);
+    assertThat(m.get(1, 0)).isWithin(1e-7).of(1);
+    assertThat(m.get(1, 1)).isWithin(1e-7).of(0);
+  }
+
+  @Test
+  public void square_isCorrect() {
+    //ACT
+    Matrix m = Shapes.square(2);
+    Matrix mm = Shapes.square(3);
+
+    // ASSERT
+    assertThat(m.height()).isEqualTo(2);
+    assertThat(m.width()).isEqualTo(8);
+
+    assertThat(m.height()).isEqualTo(2);
+    assertThat(m.width()).isEqualTo(12);
+  }
 }
