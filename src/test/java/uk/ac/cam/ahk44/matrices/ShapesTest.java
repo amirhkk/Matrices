@@ -62,7 +62,7 @@ public class ShapesTest {
     assertThat(m.get(1, 1)).isWithin(1e-7).of(0);
   }
 
-  /*@Test
+  @Test
   public void square_isCorrect() {
     //ACT
     Matrix m = Shapes.square(2);
@@ -70,9 +70,9 @@ public class ShapesTest {
 
     // ASSERT
     assertThat(m.height()).isEqualTo(2);
-    assertThat(m.width()).isEqualTo(8);
+    assertThat(m.width()).isEqualTo(16);
 
     assertThat(p.height()).isEqualTo(2);
-    assertThat(p.width()).isEqualTo(12);
-  }*/
+    assertThat(p.width()).isEqualTo(24);
+  }
 }
